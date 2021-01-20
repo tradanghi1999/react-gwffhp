@@ -1,11 +1,21 @@
 import React from "react";
 import "./style.css";
+import "antd/dist/antd.css";
+import { connect } from "react-redux";
+//
+import IMEIgen from "./component/item/IMEIgen";
 
-export default function App() {
-  return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
-  );
+function App({imeiReducer}) {
+  console.log(imeiReducer)
+  return <IMEIgen />;
 }
+const mapStateToProps = state => {
+  return {
+    imeiReducer: state.imeiReducer
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
